@@ -4,10 +4,13 @@ frontend:
     preBuild:
       commands:
         - rm -rf node_modules
-        - npm install
+        - nvm use $VERSION_NODE_12
+        - npm ci
     build:
       commands:
-        - npm build
+        - nvm use $VERSION_NODE_12
+        - node -v
+        - npm run-script build
   artifacts:
     baseDirectory: build
     files:
